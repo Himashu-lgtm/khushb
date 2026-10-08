@@ -1,0 +1,196 @@
+/* ---------- 1. Colors & fonts (change them here) ---------- */
+:root {
+  --maroon: #5c0f1c;
+  --maroon-deep: #440a12;
+  --gold: #d4af37;
+  --gold-light: #f3dfa2;
+  --ivory: #fffdfa;
+  --text: #2a1b18;
+  --serif: 'Cinzel', Georgia, serif;
+  --body-serif: 'Cormorant Garamond', Georgia, serif;
+  --script: 'Alex Brush', cursive;
+  --sans: 'Montserrat', sans-serif;
+}
+
+/* ---------- 2. Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: #3d0810 url('images/royal_palace_bg.jpg') center top / cover fixed no-repeat;
+}
+h1, h2, h3 { font-family: var(--serif); letter-spacing: 0.05em; }
+a { text-decoration: none; }
+#petals { position: fixed; inset: 0; pointer-events: none; z-index: 99; }
+
+/* ---------- 3. Buttons ---------- */
+.btn-gold, .btn-outline {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font: 700 0.85rem var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37, #f4dc8f 50%, #b8860b);
+  color: var(--maroon-deep);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+.btn-outline { background: rgba(255, 253, 250, 0.85); color: var(--maroon-deep); border: 1.5px solid var(--gold); }
+.btn-gold:hover, .btn-outline:hover { transform: translateY(-2px); }
+
+/* ---------- 4. Welcome screen ---------- */
+#welcome {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle, #7a1523, #440a12 60%, #26050a);
+  transition: opacity 1s, visibility 1s;
+}
+#welcome.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.welcome-box {
+  width: 90%; max-width: 560px; padding: 3rem 2rem; text-align: center;
+  background: linear-gradient(145deg, #831828, #540b16);
+  border: 2px solid rgba(243, 223, 162, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 175, 55, 0.25);
+}
+.swastik { font-size: 2.4rem; color: var(--gold-light); }
+.small-caps { font: 0.85rem var(--serif); letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light); margin: 0.6rem 0; }
+.small-caps.dark { color: var(--text); font-size: 1.1rem; }
+.gold-text {
+  font-size: clamp(2.2rem, 7vw, 3.4rem); margin: 1.5rem 0 2rem;
+  background: linear-gradient(135deg, #b38428, #e2be68 35%, #fff3cd 50%, #d4af37 70%, #906c1d);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* ---------- 5. Navbar + music button ---------- */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 253, 250, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+.brand { font: 700 1.4rem var(--serif); color: var(--maroon); }
+.brand span { font-family: var(--script); color: var(--gold); font-size: 1.6rem; }
+#navbar ul { display: flex; gap: 2rem; list-style: none; }
+#navbar li a { font: 600 0.85rem var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
+#navbar li a:hover { color: var(--maroon); }
+
+#musicBtn {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  width: 52px; height: 52px; border-radius: 50%; font-size: 1.3rem; cursor: pointer;
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+  border: 2px solid var(--gold);
+  box-shadow: 0 6px 20px rgba(68, 10, 18, 0.4);
+}
+
+/* ---------- 6. Hero ---------- */
+.hero { min-height: 100vh; padding: 7rem 1.5rem 4rem; text-align: center; }
+.invocation { font: 700 0.9rem var(--serif); letter-spacing: 0.2em; color: #fff; text-shadow: 1px 1px 3px #000; margin-bottom: 1rem; }
+.names {
+  font: 400 clamp(4.5rem, 12vw, 7rem)/1.05 var(--script);
+  color: #fff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+.amp { display: block; font: clamp(3rem, 8vw, 5rem) var(--script); color: var(--gold); text-shadow: 1px 1px 4px #000; }
+.arch {
+  width: 300px; max-width: 80%; height: 400px; margin: 2rem auto;
+  border: 6px solid var(--gold); border-radius: 150px 150px 20px 20px;
+  overflow: hidden; background: var(--ivory);
+  box-shadow: 0 20px 50px rgba(68, 10, 18, 0.35);
+}
+.arch img { width: 100%; height: 100%; object-fit: cover; }
+.tagline {
+  display: inline-block; margin-bottom: 1.8rem; padding: 0.4rem 1.5rem;
+  font-size: 1.3rem; font-weight: 600; color: #fff;
+  background: rgba(68, 10, 18, 0.6); border-radius: 999px;
+}
+
+/* ---------- 7. Sections ---------- */
+.section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.25rem; text-align: center; }
+.section-title { font-size: clamp(2rem, 4.5vw, 3.2rem); color: #fff; text-shadow: 2px 2px 4px #000; margin-bottom: 0.5rem; }
+.section-sub { font: italic 1.3rem var(--body-serif); color: #fff; text-shadow: 1px 1px 3px #000; max-width: 650px; margin: 0 auto 2.5rem; }
+
+/* scratch card */
+.scratch-wrap {
+  position: relative; width: 100%; max-width: 500px; height: 280px; margin: 0 auto;
+  border: 2px solid var(--gold); border-radius: 16px; overflow: hidden; background: var(--ivory);
+}
+.scratch-base {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: radial-gradient(circle, #fffdfa, #f4efe4);
+}
+.date-script { font: clamp(3rem, 12vw, 4.5rem) var(--script); color: var(--maroon); line-height: 1.2; }
+#scratch { position: absolute; inset: 0; cursor: crosshair; touch-action: none; }
+
+/* events timeline */
+.timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.timeline::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+  background: linear-gradient(transparent, var(--gold), transparent);
+}
+.event { position: relative; display: flex; margin-bottom: 3.5rem; }
+.event:nth-child(odd) { justify-content: flex-end; }
+.node {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 50px; height: 50px; border-radius: 50%; z-index: 2;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+.card {
+  width: 45%; padding: 2rem; text-align: left;
+  background: rgba(255, 253, 250, 0.75); backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(68, 10, 18, 0.2);
+  transition: transform 0.4s;
+}
+.card:hover { transform: translateY(-6px); }
+.tag { font: 700 0.8rem var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: #9a7b2c; }
+.card h3 { font-size: 1.6rem; color: var(--maroon); margin: 0.4rem 0 0.9rem; }
+.card p { font-size: 0.95rem; margin-bottom: 0.3rem; }
+
+/* invitation cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+.invite {
+  width: 100%; display: block; cursor: zoom-in; background: #fffdf9;
+  border: 2px solid var(--gold); border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(68, 10, 18, 0.3);
+  transition: transform 0.3s;
+}
+.invite:hover { transform: translateY(-5px); }
+.main-day { font: 600 1.4rem var(--serif); color: #fff; text-shadow: 1px 1px 3px #000; margin: 2.5rem 0 1.5rem; }
+.actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* lightbox */
+#lightbox {
+  position: fixed; inset: 0; z-index: 10000; padding: 2rem;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(18, 4, 7, 0.94); cursor: zoom-out;
+}
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 650px; width: 100%; max-height: 90vh; object-fit: contain; border: 2px solid var(--gold); border-radius: 12px; }
+
+/* ---------- 8. Footer ---------- */
+footer { padding: 4rem 1.5rem 3rem; text-align: center; color: var(--gold-light); background: linear-gradient(#3d0810, #200307); border-top: 2px solid var(--gold); }
+.footer-names { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--gold-light); }
+.footer-quote { font: italic 1.4rem var(--body-serif); color: #e5c378; margin: 0.5rem 0 1.5rem; }
+.hashtag { font-weight: 600; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 1.8rem; }
+
+/* ---------- 9. Mobile ---------- */
+@media (max-width: 850px) {
+  .timeline::before { left: 20px; }
+  .event, .event:nth-child(odd) { justify-content: flex-end; padding-left: 55px; }
+  .node { left: 20px; top: 30px; }
+  .card { width: 100%; }
+}
+@media print { #petals, #navbar, #musicBtn, #welcome, .actions, footer { display: none; } }

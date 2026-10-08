@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek & Karishma — Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- STEP 1: floating hearts + sparkles (drawn by script.js) -->
+  <canvas id="petals"></canvas>
+
+  <!-- STEP 2: welcome screen -->
+  <div id="welcome">
+    <div class="welcome-box">
+      <div class="swastik">卐</div>
+      <p class="small-caps">Shree Ganeshaya Namah</p>
+      <h1 class="gold-text">Khushboo &amp; Akash</h1>
+      <button id="openBtn" class="btn-gold">💌 Tap to open</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: navigation bar -->
+  <nav id="navbar">
+    <a href="#home" class="brand">V <span>&amp;</span> K</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
+  </nav>
+
+  <!-- music button -->
+  <button id="musicBtn" aria-label="Toggle music">🔇</button>
+
+  <main>
+    <!-- STEP 4: hero -->
+    <section id="home" class="hero">
+      <p class="invocation">॥ श्री गणेशाय नमः ॥</p>
+      <h2 class="names">Khushboo</h2>
+      <span class="amp">&amp;</span>
+      <h2 class="names">Akash</h2>
+      <div class="arch"><img src="assets/couple-art.png" alt="Khushboo and Akash"></div>
+      <p class="tagline">We are getting married!</p>
+      <a href="#events" class="btn-gold">View Wedding Events</a>
+    </section>
+
+    <!-- STEP 5: scratch card -->
+    <section class="section">
+      <h2 class="section-title">Mark Your Calendar</h2>
+      <p class="section-sub">Scratch the card below to reveal our special date.</p>
+      <div class="scratch-wrap" id="scratchWrap">
+        <div class="scratch-base">
+          <p class="date-script">25 Nov 2026</p>
+          <p class="small-caps dark">Save the Date</p>
+        </div>
+        <canvas id="scratch"></canvas>
+      </div>
+    </section>
+
+    <!-- STEP 6: events timeline -->
+    <section id="events" class="section">
+      <h2 class="section-title">Wedding Celebrations</h2>
+      <p class="section-sub">Join us as we celebrate every beautiful moment together.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="node">☀️</div>
+          <div class="card">
+            <span class="tag">🌼 Auspicious Sunshine</span>
+            <h3>Haldi Ceremony</h3>
+            <p>📅 Monday, 23 November 2026</p>
+            <p>🕒 10:00 AM Onwards</p>
+            <p><b>📍 Panaghar</b></p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="node">🎵</div>
+          <div class="card">
+            <span class="tag">🌿 Music, Henna &amp; Rhythms</span>
+            <h3>Mehendi &amp; Sangeet</h3>
+            <p>📅 Tuesday, 24 November 2026</p>
+            <p>🕒 06:30 PM Onwards</p>
+            <p><b>📍 Panaghar</b></p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="node">🔥</div>
+          <div class="card">
+            <span class="tag">🥁 The Grand Royal Procession</span>
+            <h3>Baraat Swagat</h3>
+            <p>📅 Wednesday, 25 November 2026</p>
+            <p>🕒 08:00 PM</p>
+            <p><b>📍 Panaghar</b></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 7: invitation cards (click to enlarge) -->
+    <section class="section">
+      <h2 class="section-title">Digital Invitation Cards</h2>
+      <p class="section-sub">A keepsake of sacred vows, designed with the warmth of Indian tradition.</p>
+      <div class="cards">
+        <img src="assets/invite-card-main.png" alt="Invitation card 1" class="invite">
+        <img src="assets/invite-card-events.png" alt="Invitation card 2" class="invite">
+      </div>
+      <p class="main-day">Wednesday, 25th November 2026</p>
+      <div class="actions">
+        <button id="shareBtn" class="btn-gold">Share Invitation</button>
+        <button id="printBtn" class="btn-outline">Print Cards</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- STEP 8: footer -->
+  <footer>
+    <h3 class="footer-names">Khushboo &amp; Akash</h3>
+    <p class="footer-quote">"Forever begins here ❤️"</p>
+    <p class="hashtag">#KhushbooWedsAkash</p>
+    <button id="whatsappBtn" class="btn-gold">Share on WhatsApp</button>
+  </footer>
+
+  <!-- full-size card viewer -->
+  <div id="lightbox"><img id="lightboxImg" alt="Invitation card"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
